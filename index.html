@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interview Prep Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">🎯</div>
+      Interview Prep Tracker
+    </div>
+    <button class="report-btn" onclick="openReport()">📊 Progress Report</button>
+    <div class="streak-pill">
+      🔥 <span id="streakCount">0</span> day streak
+    </div>
+  </nav>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <div class="stat-num purple" id="overallPct">0%</div>
+      <div class="stat-label">Overall ready</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="doneCount">0</div>
+      <div class="stat-label">Topics done</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="progressCount">0</div>
+      <div class="stat-label">In progress</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="notStartedCount">0</div>
+      <div class="stat-label">Not started</div>
+    </div>
+  </div>
+
+  <!-- OVERALL PROGRESS BAR -->
+  <div class="progress-row">
+    <span class="progress-label">Overall progress</span>
+    <div class="prog-bar-bg">
+      <div class="prog-bar-fill" id="overallBar" style="width: 0%"></div>
+    </div>
+    <span class="prog-pct purple" id="overallPct2">0%</span>
+  </div>
+
+
+  <!-- MOTIVATIONAL QUOTE -->
+  <div class="quote-bar">
+    <span class="quote-icon">💬</span>
+    <span id="quoteText"></span>
+  </div>
+
+  <!-- STUDY TIMER -->
+  <div class="timer-section">
+    <div class="timer-left">
+      <div class="timer-label">Daily study goal</div>
+      <div class="timer-display">
+        <span id="timerTime">00:00:00</span>
+        <span class="timer-goal">/ <span id="goalDisplay">1</span> hr goal</span>
+      </div>
+      <div class="timer-bar-bg">
+        <div class="timer-bar-fill" id="timerBar" style="width: 0%"></div>
+      </div>
+    </div>
+    <div class="timer-right">
+      <div class="goal-row">
+        <label>Set goal</label>
+        <select id="goalSelect" onchange="setGoal()">
+          <option value="1">1 hour</option>
+          <option value="2">2 hours</option>
+          <option value="3">3 hours</option>
+          <option value="4">4 hours</option>
+          <option value="5">5 hours</option>
+        </select>
+      </div>
+      <div class="timer-btns">
+        <button class="timer-btn start" id="timerBtn" onclick="toggleTimer()">▶ Start</button>
+        <button class="timer-btn reset" onclick="resetTimer()">↺ Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filters">
+    <button class="ftag active" onclick="filterTopics('all', this)">All topics</button>
+    <button class="ftag" onclick="filterTopics('not-started', this)">Not started</button>
+    <button class="ftag" onclick="filterTopics('in-progress', this)">In progress</button>
+    <button class="ftag" onclick="filterTopics('done', this)">Done</button>
+  </div>
+
+  <!-- SUBJECT CARDS -->
+  <div class="cards-grid" id="cardsGrid"></div>
+
+  <footer>
+    <p>🎯 Interview Prep Tracker — Built for CS students cracking internships</p>
+  </footer>
+
+
+  <!-- REPORT MODAL -->
+<div class="modal-overlay hidden" id="reportModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>📊 Progress Report</h2>
+      <button class="close-btn" onclick="closeReport()">✕</button>
+    </div>
+    <div class="modal-body" id="reportBody"></div>
+    <div class="modal-footer">
+      <button class="report-download-btn" onclick="closeReport()">Close</button>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
