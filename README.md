@@ -2,7 +2,7 @@
 
 A clean and minimal topic-by-topic interview preparation tracker built for CS students cracking internships.
 
-🌐 **Live Demo:** [Click Here](https://interview-prep-tracker.vercel.app)
+🌐 **Live Demo:** [Click Here](https://interview-prep-tracker-sepia.vercel.app)
 
 ---
 
